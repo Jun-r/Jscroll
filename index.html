@@ -11,8 +11,13 @@
   $(function(){
   	$(".ui-jscroll1").Jscroll();
   	var scroll=$(".ui-jscroll2").Jscroll();
+  	var html='<li><span class="f-l">测试</span><span class="f-r close">X</span></li>';
   	$(".test li .close").on("click",function(){
   		$(this).parent().remove();
+  		scroll.refresh();
+  	})
+  	$(".updata").on("click",function(){
+  		$(".test").append(html);
   		scroll.refresh();
   	})
   })
@@ -59,10 +64,13 @@
          	<li><span class="f-l">测试</span><span class="f-r close">X</span></li>
          	<li><span class="f-l">测试</span><span class="f-r close">X</span></li>
          	<li><span class="f-l">测试</span><span class="f-r close">X</span></li>
-            <li><span class="f-l">测试</span><span class="f-r close">X</span></li>
+           <li><span class="f-l">测试</span><span class="f-r close">X</span></li>
          	<li><span class="f-l">测试</span><span class="f-r close">X</span></li>
          	<li><span class="f-l">测试</span><span class="f-r close">X</span></li>
          </ul>
+    </div>
+    <div class="content">
+    	<a href="javascript:;" class="updata">新增</a>
     </div>
 </body>
 </html>

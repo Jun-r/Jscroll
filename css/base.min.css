@@ -35,3 +35,5 @@ input[type="radio"],input[type="checkbox"]{position: relative;*top: 2px;vertical
 .test{background:#eee;color:#666;overflow:hidden;padding:0 10px;width:480px}
 .test li{line-height:30px;height:30px;}
 .test li .f-r{cursor:pointer;margin-right:10px;}
+
+.updata{width:80px;height:30px;line-height:30px;background:#333;color:#fff;font-size:14px;display:block;text-align:center;}
