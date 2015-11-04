@@ -32,6 +32,6 @@ input[type="radio"],input[type="checkbox"]{position: relative;*top: 2px;vertical
 .h3{font-size:25px;font-weight:bold;color:#333;margin:50px auto 0 auto;width:500px;}
 .h3 span{color:#666;font-size:16px;float:right;font-weight:100;margin-top:10px;}
 
-.test{background:#eee;color:#666;overflow:hidden;padding:0 10px;width:470px}
+.test{background:#eee;color:#666;overflow:hidden;padding:0 10px;width:480px}
 .test li{line-height:30px;height:30px;}
-.test li .f-r{cursor:pointer;}
+.test li .f-r{cursor:pointer;margin-right:10px;}

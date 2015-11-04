@@ -9,13 +9,6 @@
 	     _self.scroll=self;
 	     _self.Jscroll=$(_self.scroll);
 	     _self.init();
-	     _self.refresh=function(){
-	     	_self.scrollboxHeight=_self.scrollbox.height();
-	     	_self.scrollBarHeight = (_self.JscrollHeight / _self.scrollboxHeight) * _self.JscrollHeight;
-			_self.scrollBarV.css({"height":_self.scrollBarHeight});
-			_self.scrollboxHeight<_self.JscrollHeight?_self.scrollBar.hide():_self.scrollBar.show();
-            _self.handleMove();
-	     };
 	}
 	Jscroll.prototype={
 		 init:function(){
@@ -25,6 +18,7 @@
 		     _self.scrollbox=_self.Jscroll.children(".ui-jscroll-wp");
 		     _self.scrollboxHeight=_self.scrollbox.height();
 		     _self.JscrollHeight=_self.Jscroll.height();
+
 		     //判断内容区大于固定高度时执行
 		     if(_self.scrollboxHeight>_self.JscrollHeight){
 		     	 _self.Jscroll.append(scrollBarhtml);
@@ -83,9 +77,21 @@
 			_self.scrollbox.css("top",_self.nowTop);
 			_self.scrollBarV.css("top",-scrollBarY);
 		 },
+		 refresh:function(){
+		 	 var _self=this;
+	     	_self.scrollboxHeight=_self.scrollbox.height();
+	     	_self.scrollBarHeight = (_self.JscrollHeight / _self.scrollboxHeight) * _self.JscrollHeight;
+	     	var offtop=_self.scrollBarV.css("top") || 0;
+	     	_self.getscrollVal(offtop);
+			_self.scrollBarV.css({"height":_self.scrollBarHeight});
+			if(_self.scrollboxHeight<_self.JscrollHeight){
+				_self.destroy()
+			}
+	     },
 		 destroy:function(){
 		 	 var _self=this;
-		 	_self.scrollBar.remove()
+		 	 _self.scrollBar.remove();
+		 	 _self.scrollbox.parent().removeAttr("data-scroll").children().children().unwrap();
 		 }
 	 }
 	var uuid=0;
